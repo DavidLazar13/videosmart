@@ -21,65 +21,71 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-    <div class="navbar">
-        <img src="assets/logo-WheelsFlying.png" alt="WheelsFlyingLogo">
-    </div>
+    <div class="wrapper">
+        <div class="navbar">
+            <img src="assets/logo-WheelsFlying.png" alt="WheelsFlyingLogo">
+        </div>
 
-    <div class="video-section">
-        <video width="auto" height="496" controls="controls" poster="assets/video_placeholder.png">
-            <source src="https://www.videosmart.com/Content/Videos/Kwik_Fit-CaseStudy_v2.mp4" type="video/mp4">
-        </video>
-    </div>
+        <div class="video-section">
+            <div class="video-container">
+                <video width="100%" height="auto" controls="controls" poster="assets/video_placeholder.png">
+                    <source src="https://www.videosmart.com/Content/Videos/Kwik_Fit-CaseStudy_v2.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
 
-    <div class="quote">
-        <p>With over 500 test centres throughout the UK and many open 7-days-a-week, it's no wonder we're the UK's
-            number 1 tester.</p>
-    </div>
+        <div class="quote">
+            <p>With over 500 test centres throughout the UK and many open 7-days-a-week, it's no wonder we're the UK's
+                number 1 tester.</p>
+        </div>
 
-    <!--STAR SVG -->
-    <svg style="display: none;">
-        <symbol id="star" viewBox="0 0 98 92">
-            <title>star</title>
-            <path stroke='#FAB400' stroke-width='5'
-                d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z'
-                fill-rule='evenodd' />
-    </svg>
+        <!--STAR SVG -->
+        <svg style="display: none;">
+            <symbol id="star" viewBox="0 0 98 92">
+                <title>star</title>
+                <path stroke='#FAB400' stroke-width='5'
+                    d='M49 73.5L22.55 87.406l5.05-29.453-21.398-20.86 29.573-4.296L49 6l13.225 26.797 29.573 4.297-21.4 20.86 5.052 29.452z'
+                    fill-rule='evenodd' />
+        </svg>
 
-    <div class="rating-section">
-        <div class="rating">
-            <img src="assets/image-van.png" alt="Hippie Van">
-            <div class="rating-stars-section">
-                <p>
-                    On scale 1 to 5, did you find this video useful?
-                </p>
-                <div class="stars">
-                    <a class="star" href="#"><svg>
-                            <use xlink:href="#star"></use>
-                        </svg></a>
-                    <a class="star" href="#"><svg>
-                            <use xlink:href="#star"></use>
-                        </svg></a>
-                    <a class="star" href="#"><svg>
-                            <use xlink:href="#star"></use>
-                        </svg></a>
-                    <a class="star" href="#"><svg>
-                            <use xlink:href="#star"></use>
-                        </svg></a>
-                    <a class="star" href="#"><svg>
-                            <use xlink:href="#star"></use>
-                        </svg></a>
+        <div class="rating-section">
+            <div class="rating">
+                <img src="assets/image-van.png" alt="Hippie Van">
+                <div class="rating-stars-section">
+                    <p>
+                        On scale 1 to 5, did you find this video useful?
+                    </p>
+                    <div class="stars">
+                        <span class="star"><svg>
+                                <use xlink:href="#star"></use>
+                            </svg></span>
+                        <span class="star"><svg>
+                                <use xlink:href="#star"></use>
+                            </svg></span>
+                        <span class="star"><svg>
+                                <use xlink:href="#star"></use>
+                            </svg></span>
+                        <span class="star"><svg>
+                                <use xlink:href="#star"></use>
+                            </svg></span>
+                        <span class="star"><svg>
+                                <use xlink:href="#star"></use>
+                            </svg></span>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="review">
-            <div class="text-area">
-                <textarea placeholder="Leave us a review" maxlength="150"></textarea>
-                <button>
-                    Submit
-                </button>
+            <div class="review">
+                <div class="textarea-box">
+                    <textarea placeholder="Leave us a comment" maxlength="150"></textarea>
+                    <button id="submit">
+                        Submit
+                    </button>
+                </div>
             </div>
+
         </div>
 
+        <div class="push"></div>
     </div>
 
     <div class="footer">
@@ -88,7 +94,41 @@
         </p>
     </div>
 
-    <script src="" async defer></script>
+
+    <div class="alertbox">
+        <div class="alert">
+            <p>Thank you for your comment!!</p>
+        </div>
+    </div>
+
+
+    <script>
+        // show textarea when a star is clicked
+        document.querySelector('.stars').addEventListener('click', function () {
+            var textarea = document.querySelector('.textarea-box')
+            textarea.style.display = "block";
+        })
+
+        // hide rating after submit was clicked and show the alert
+        function exitAlert() {
+            document.querySelector('.alertbox').style.display = "none";
+        };
+
+        document.querySelector('#submit').addEventListener('click', function () {
+            var ratingSection = document.querySelector('.rating-section')
+            var alertBox = document.querySelector('.alertbox')
+            ratingSection.style.display = "none"
+            alertBox.style.display = "block"
+            setTimeout(exitAlert, 3000);
+        })
+
+        // hide rating after submit was clicked and show the alert
+        document.querySelector('video').addEventListener('play', function () {
+            var ratingSection = document.querySelector('.rating-section')
+            ratingSection.style.display = "block"
+        })
+
+    </script>
 </body>
 
 </html>

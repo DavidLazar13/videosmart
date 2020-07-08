@@ -1,7 +1,13 @@
-body{
+html, body{
+    height: 100%;
     margin: 0;
     padding: 0;
     font-family: 'Open Sans', sans-serif;
+}
+
+.wrapper{
+    min-height: 100%;
+    margin-bottom: -40px;
 }
 
 .navbar{
@@ -22,6 +28,8 @@ body{
 .video-section{
     text-align: center;
     background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
 }
 
 .video-section video {
@@ -31,6 +39,10 @@ body{
     -webkit-box-shadow: 0px 0px 15px 4px rgba(207,207,207,1);
     -moz-box-shadow: 0px 0px 15px 4px rgba(207,207,207,1);
     box-shadow: 0px 0px 15px 4px rgba(207,207,207,1);
+}
+
+.video-container {
+    width: 50%;
 }
 
 .quote{
@@ -47,6 +59,7 @@ body{
 }
 
 .rating-section {
+    display: none;
     margin: auto;
     text-align: center;
     padding: 80px 0 96px 0;
@@ -78,6 +91,10 @@ body{
     color: white;
     background-color:#ff4200;
     z-index: 0;
+}
+
+.push{
+    height: 40px;
 }
 
 .footer{
@@ -131,14 +148,78 @@ textarea{
     justify-content: center;
 }
 
-.text-area{
+.textarea-box{
     margin-top: 40px;
-    /* display: none; */
+     display: none; 
 }
 
+.star.is-selected svg, 
+.star.is-selected ~ .star svg {
+  fill: darken(orange, 20%);
+}
 
 
 button{
     display: block;
 }
 
+.alertbox{
+    display: none;
+    position: fixed;
+    top: 25px;
+    margin: auto;
+    z-index: 1000;
+    width: 100%;
+}
+
+.alert{
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 70%;
+    background-color: #5cc832e3;
+    border-radius: 10px;
+}
+
+
+/* Mobile  */
+@media only screen and (max-width: 600px) {
+    .video-container {
+       width: 80%;
+    }
+
+    .quote p {
+        margin: auto;
+        width: 90%;
+    }
+
+    .rating {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .rating-stars-section{
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    textarea{
+        width: 300px;
+        height: 120px;
+        
+    }
+    
+}
+
+@media only screen and (min-width: 600px) and (max-width:768px) {
+    .video-container {
+       width: 80%;
+    }
+
+    .quote p {
+        margin: auto;
+        width: 75%;
+    }
+}
