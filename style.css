@@ -153,11 +153,6 @@ textarea{
      display: none; 
 }
 
-.star.is-selected svg, 
-.star.is-selected ~ .star svg {
-  fill: darken(orange, 20%);
-}
-
 
 button{
     display: block;
@@ -178,7 +173,7 @@ button{
     justify-content: center;
     margin: auto;
     width: 70%;
-    background-color: #5cc832e3;
+    background-color: #5cc832;
     border-radius: 10px;
 }
 
